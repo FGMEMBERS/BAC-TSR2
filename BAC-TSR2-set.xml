@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+BAC TSR2 simulation config.
+
+2002-10-26 Lee Elliott  leee-fgfs@spatial.freeserve.co.uk
+************************************************************************
+-->
+
+<PropertyList>
+  <sim>
+    <flight-model>yasim</flight-model>
+    <aero>BAC-TSR2-yasim</aero>
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <description>BAC TSR2 Prototype (YASim FDM)</description>
+
+    <number-views type="int" archive="y">7</number-views>
+
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+
+    <view n="0">
+      <internal archive="y">true</internal>
+      <config>
+        <x-offset-m archive="y">0.0</x-offset-m>
+        <y-offset-m archive="y">1.5</y-offset-m>
+        <z-offset-m archive="y">-8.13</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="6">
+      <name>Cockpit View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">0</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+        <front-left-direction-deg type="double">45</front-left-direction-deg>
+        <left-direction-deg type="double">90</left-direction-deg>
+        <back-left-direction-deg type="double">135</back-left-direction-deg>
+        <back-direction-deg type="double">180</back-direction-deg>
+        <back-right-direction-deg type="double">225</back-right-direction-deg>
+        <right-direction-deg type="double">270</right-direction-deg>
+        <front-right-direction-deg type="double">315</front-right-direction-deg>
+        <x-offset-m archive="y">0.0</x-offset-m>
+        <y-offset-m archive="y">1.6</y-offset-m>
+        <z-offset-m archive="y">-6.42</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <current-view>
+      <field-of-view>55.0</field-of-view>
+    </current-view>
+
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/BAC-TSR2/Sounds/BAC-TSR2-sound.xml</path>
+    </sound>
+
+    <panel>
+      <path>Aircraft/BAC-TSR2/Panels/BAC-TSR2-vfr-panel.xml</path>
+    </panel>
+    <panel_2>
+      <path>Aircraft/BAC-TSR2/Panels/BAC-TSR2-mini-panel.xml</path>
+    </panel_2>
+
+    <hud>
+      <path>Aircraft/BAC-TSR2/Huds/BAC-TSR2-hud1.xml</path>
+      <visibility>true</visibility>
+    </hud>
+
+    <model>
+      <path>Aircraft/BAC-TSR2/Models/BAC-TSR2-model.xml</path>
+    </model>
+
+    <systems>
+      <autopilot>
+        <path>Aircraft/BAC-TSR2/Systems/BAC-TSR2-autopilot.xml</path>
+      </autopilot>
+      <electrical>
+        <path>Aircraft/BAC-TSR2/Systems/BAC-TSR2-electrical.xml</path>
+      </electrical>
+    </systems>
+
+    <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
+
+<!-- The only certain info I've found concerning the flap
+     settings is that the landing deflection was 55 deg
+     and the take-off deflection was 35 deg.
+
+     Assuming that 55 deg corresponds to full deflection
+     (1.0) then 35 deg corresponds to 0.63.. (0.64).
+
+     The intermediate settings are pure guesswork.
+-->
+    <flaps>
+      <setting>0.00</setting>
+      <setting>0.08</setting>
+      <setting>0.16</setting>
+      <setting>0.32</setting>
+      <setting>0.48</setting>
+      <setting>0.64</setting>
+      <setting>0.82</setting>
+      <setting>1.00</setting>
+    </flaps>
+
+  </sim>
+
+  <autopilot>
+    <settings>
+      <target-agl-ft type="float">800</target-agl-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-aoa-deg type="float">11</target-aoa-deg>
+      <target-pitch-deg type="float">14</target-pitch-deg>]
+      <target-vfps type="float">0</target-vfps>
+      <take-off-pitch-deg type="float">14</take-off-pitch-deg>
+      <climb-out-pitch-deg type="float">7</climb-out-pitch-deg>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
+      <target-speed-kt type="float">350.0</target-speed-kt>
+      <target-mach type="float">0.86</target-mach>
+      <approach-AoA-deg type="float">9.0</approach-AoA-deg>
+      <auto-flap-target-deg type="float">6.0</auto-flap-target-deg>
+    </settings>
+
+    <locks>
+      <auto-take-off type="string">Enabled</auto-take-off>
+      <auto-landing type="string">Enabled</auto-landing>
+      <rudder-control type="string">Initialised</rudder-control>
+      <approach-AoA-lock type="string">Initialised</approach-AoA-lock>
+      <auto-flap-control type="string">Manual</auto-flap-control>
+      <gs-clamp type="string">Disabled</gs-clamp>
+    </locks>
+
+  </autopilot>
+
+<!-- Start with the Parking Brake on -->
+  <controls>
+    <gear>
+      <brake-parking type="double">1.0</brake-parking>
+    </gear>
+  </controls>
+
+<!-- Engine indexes -->
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+    </engine>
+    <engine n="1">
+      <engine-num type="int">1</engine-num>
+    </engine>
+  </engines>
+
+<!-- Fuel Tank indexes -->
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+      </tank>
+      <tank n="1">
+        <tank-num type="int">1</tank-num>
+      </tank>
+      <tank n="2">
+        <tank-num type="int">2</tank-num>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <instrumentation>
+    <radar>
+      <range type="int" archive="y">40</range>
+      <minimized type="bool" archive="y">true</minimized>
+    </radar>
+  </instrumentation>
+
+  <nasal>
+    <TSR2>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2.nas</file>
+    </TSR2>
+  </nasal>
+
+</PropertyList>
