@@ -16,6 +16,7 @@ BAC TSR2 simulation config.
 
     <flight-model>yasim</flight-model>
     <status>beta</status>
+    <author>Lee Elliott</author>
     <aero>BAC-TSR2-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
