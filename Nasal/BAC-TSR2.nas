@@ -107,7 +107,7 @@ autoland = func {
 atl_glideslope= func {
   # This script handles the Glide Slope phase
   ap_alt_lock= getprop("/autopilot/locks/altitude");
-  gsvfps = getprop("/radios/nav[0]/gs-rate-of-climb");
+  gsvfps = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
   curr_vfps = getprop("/velocities/vertical-speed-fps");
 
   if(ap_alt_lock != "gs1-hold") {
@@ -134,7 +134,7 @@ atl_spddep = func {
     setprop("/autopilot/settings/target-speed-kt", 250);
   }
 
-  gsvfps = getprop("/radios/nav[0]/gs-rate-of-climb");
+  gsvfps = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
   kias = getprop("/velocities/airspeed-kt");
   if(kias < 155) {
     setprop("/autopilot/locks/approach-AoA-lock", "Engaged");
@@ -219,7 +219,7 @@ atl_touchdown = func {
 #--------------------------------------------------------------------
 atl_heading = func {
   # This script handles heading dependent actions.
-  hdnddf = getprop("/radios/nav[0]/heading-needle-deflection");
+  hdnddf = getprop("/instrumentation/nav[0]/heading-needle-deflection");
   if(hdnddf < 2) {
     if(hdnddf > -2) {
       setprop("/autopilot/locks/heading", "nav1-hold-fa");
