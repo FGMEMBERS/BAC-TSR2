@@ -10,6 +10,7 @@ BAC TSR2 simulation config.
 <PropertyList>
   <sim>
     <flight-model>yasim</flight-model>
+    <status>beta</status>
     <aero>BAC-TSR2-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
