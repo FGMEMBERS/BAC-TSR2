@@ -16,6 +16,7 @@
   <n2-select>/engines/engine[0]/n2</n2-select>
   <ff-select>/engines/engine[0]/fuel-flow-gph</ff-select>
   <th-select>/controls/engines/engine[0]/throttle</th-select>
+  <egt-select>/controls/engines/engine[0]/egr-degf</egt-select>
  </params>
 
  <layers>

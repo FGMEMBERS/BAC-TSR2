@@ -9,6 +9,11 @@ BAC TSR2 simulation config.
 
 <PropertyList>
   <sim>
+
+    <startup>
+      <splash-texture>Aircraft/BAC-TSR2/BAC-TSR2-splash.rgb</splash-texture>
+    </startup>
+
     <flight-model>yasim</flight-model>
     <status>beta</status>
     <aero>BAC-TSR2-yasim</aero>
@@ -19,6 +24,8 @@ BAC TSR2 simulation config.
     <number-views type="int" archive="y">7</number-views>
 
     <virtual-cockpit archive="y">true</virtual-cockpit>
+
+    <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
 
     <view n="0">
       <internal archive="y">true</internal>
@@ -92,8 +99,12 @@ BAC TSR2 simulation config.
       </electrical>
     </systems>
 
-    <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
-
+<!--sub models -->
+    <submodels>
+      <serviceable type="bool">1</serviceable>
+      <path>Aircraft/BAC-TSR2/BAC-TSR2-submodels.xml</path>
+    </submodels>
+    
 <!-- The only certain info I've found concerning the flap
      settings is that the landing deflection was 55 deg
      and the take-off deflection was 35 deg.
@@ -116,6 +127,22 @@ BAC TSR2 simulation config.
 
   </sim>
 
+<!-- Keboard changes -->
+<!-- Trajectory Markers -->
+  <input>
+    <keyboard>
+      <key n="75">
+        <name>K</name>
+        <desc>Toggle trajectory markers</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TSR2.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+
+<!-- Autopilot -->
   <autopilot>
     <settings>
       <target-agl-ft type="float">800</target-agl-ft>
@@ -123,8 +150,8 @@ BAC TSR2 simulation config.
       <target-aoa-deg type="float">11</target-aoa-deg>
       <target-pitch-deg type="float">14</target-pitch-deg>]
       <target-vfps type="float">0</target-vfps>
-      <take-off-pitch-deg type="float">14</take-off-pitch-deg>
-      <climb-out-pitch-deg type="float">7</climb-out-pitch-deg>
+      <take-off-pitch-deg type="float">12</take-off-pitch-deg>
+      <climb-out-pitch-deg type="float">7.5</climb-out-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-speed-kt type="float">350.0</target-speed-kt>
       <target-mach type="float">0.86</target-mach>
@@ -138,9 +165,7 @@ BAC TSR2 simulation config.
       <rudder-control type="string">Initialised</rudder-control>
       <approach-AoA-lock type="string">Initialised</approach-AoA-lock>
       <auto-flap-control type="string">Manual</auto-flap-control>
-      <gs-clamp type="string">Disabled</gs-clamp>
     </locks>
-
   </autopilot>
 
 <!-- Start with the Parking Brake on -->
