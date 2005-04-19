@@ -126,6 +126,18 @@ BAC TSR2 simulation config.
       <setting>1.00</setting>
     </flaps>
 
+    <help>
+      <title>BAC TSR2</title>
+      <key>
+        <name>j/k</name>
+        <desc>decrease/increase spoilers</desc>
+      </key>
+      <key>
+        <name>K</name>
+        <desc>Toggle trajectory markers</desc>
+      </key>
+    </help>
+
   </sim>
 
 <!-- Keboard changes -->
