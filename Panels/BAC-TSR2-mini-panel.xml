@@ -30,7 +30,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 <x>...</x> and <y>...</y> properties.
 
 Hacked by Lee Elliott for the BAC-TSR2 mock panel
-<leee-fgfs@spatial.freeserve.co.uk>
+
 -->
 
 <!DOCTYPE PropertyList SYSTEM "panel.dtd">
@@ -266,7 +266,15 @@ Hacked by Lee Elliott for the BAC-TSR2 mock panel
   <instrument include="Instruments/digital-roll.xml">
    <name>Roll display</name>
    <x>80</x>
-   <y>45</y>
+   <y>46</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-pitch.xml">
+   <name>Pitch display</name>
+   <x>80</x>
+   <y>25</y>
    <w>40</w>
    <h>10</h>
   </instrument>

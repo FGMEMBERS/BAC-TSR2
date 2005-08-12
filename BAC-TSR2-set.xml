@@ -3,7 +3,7 @@
 ************************************************************************
 BAC TSR2 simulation config.
 
-2002-10-26 Lee Elliott  leee-fgfs@spatial.freeserve.co.uk
+2005-08-07 Lee Elliott
 ************************************************************************
 -->
 
@@ -22,7 +22,7 @@ BAC TSR2 simulation config.
 
     <description>BAC TSR2 Prototype (YASim FDM)</description>
 
-    <number-views type="int" archive="y">7</number-views>
+    <number-views type="int" archive="y">8</number-views>
 
     <virtual-cockpit archive="y">true</virtual-cockpit>
 
@@ -66,6 +66,54 @@ BAC TSR2 simulation config.
       </config>
     </view>
 
+    <view n="7">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
+      </config>
+    </view>
+<!--
+    <view n="8">
+      <name>Ground Observer View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[8]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[8]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[8]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[8]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[8]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[8]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
+      </config>
+    </view>
+-->
     <current-view>
       <field-of-view>55.0</field-of-view>
     </current-view>
@@ -126,24 +174,12 @@ BAC TSR2 simulation config.
       <setting>1.00</setting>
     </flaps>
 
-    <help>
-      <title>BAC TSR2</title>
-      <key>
-        <name>j/k</name>
-        <desc>decrease/increase spoilers</desc>
-      </key>
-      <key>
-        <name>K</name>
-        <desc>Toggle trajectory markers</desc>
-      </key>
-    </help>
-
   </sim>
 
 <!-- Keboard changes -->
-<!-- Trajectory Markers -->
   <input>
     <keyboard>
+<!-- Trajectory Markers -->
       <key n="75">
         <name>K</name>
         <desc>Toggle trajectory markers</desc>
@@ -152,6 +188,27 @@ BAC TSR2 simulation config.
           <script>TSR2.toggle_traj_mkr()</script>
         </binding>
       </key>
+<!-- Update Ground Observer View position -->
+<!--
+       <key n="81">
+        <name>Q</name>
+        <desc>Update Ground Observer View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TSR2.update_ground_observer_view_pos()</script>
+        </binding>
+      </key>
+-->
+<!-- Update Drop View position -->
+       <key n="85">
+        <name>U</name>
+        <desc>Update Drop View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TSR2.update_drop_view_pos()</script>
+        </binding>
+      </key>
+      
     </keyboard>
   </input>
 
@@ -160,11 +217,8 @@ BAC TSR2 simulation config.
     <settings>
       <target-agl-ft type="float">800</target-agl-ft>
       <target-altitude-ft type="float">3000</target-altitude-ft>
-      <target-aoa-deg type="float">11</target-aoa-deg>
-      <target-pitch-deg type="float">14</target-pitch-deg>]
-      <target-vfps type="float">0</target-vfps>
-      <take-off-pitch-deg type="float">12</take-off-pitch-deg>
-      <climb-out-pitch-deg type="float">7.5</climb-out-pitch-deg>
+      <target-pitch-deg type="float">10</target-pitch-deg>
+      <target-climb-rate-fps type="float">0</target-climb-rate-fps>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-speed-kt type="float">350.0</target-speed-kt>
       <target-mach type="float">0.86</target-mach>
@@ -179,6 +233,11 @@ BAC TSR2 simulation config.
       <approach-AoA-lock type="string">Initialised</approach-AoA-lock>
       <auto-flap-control type="string">Manual</auto-flap-control>
     </locks>
+    
+    <internal>
+      <target-climb-rate-fps type="double">0.0</target-climb-rate-fps>
+    </internal>
+    
   </autopilot>
 
 <!-- Start with the Parking Brake on -->
@@ -223,6 +282,7 @@ BAC TSR2 simulation config.
   <nasal>
     <TSR2>
       <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2.nas</file>
+      <script>start_up();</script>
     </TSR2>
   </nasal>
 

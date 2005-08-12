@@ -581,7 +581,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>0.1</step>
     <min>0</min>
-    <max>1.0</max>
+    <max>2.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -598,7 +598,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>-0.1</step>
     <min>0</min>
-    <max>1.0</max>
+    <max>2.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -615,7 +615,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>0.01</step>
     <min>0</min>
-    <max>1.0</max>
+    <max>2.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -632,7 +632,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>-0.01</step>
     <min>0</min>
-    <max>1.0</max>
+    <max>2.0</max>
     <wrap>0</wrap>
    </binding>
   </action>

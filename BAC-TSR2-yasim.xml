@@ -39,7 +39,7 @@
 
 <!-- Wing -->
  <wing x="-4.90" y="1.6" z="2.0" taper="0.32"
-      length="4.04" chord="7.20" sweep="43" dihedral="0.0" camber="0.0015">
+      length="4.04" chord="7.20" sweep="43" dihedral="0.0" camber="0.01">
   <stall aoa="30" width="1" peak="1.3"/>
   <flap0 start="0.0" end="1.0" lift="1.3" drag="1.45"/>
   <spoiler start="0.54" end="0.86" lift="1.0" drag="8.0"/>
@@ -77,20 +77,20 @@
   <control-output control="FLAP0" side="left" prop="/surface-positions/left-elevator-pos-norm"/>
   <control-output control="FLAP0" side="right" prop="/surface-positions/right-elevator-pos-norm"/>
 
-  <control-speed control="FLAP0" transition-time="2.0"/>
+  <control-speed control="FLAP0" transition-time="4.0"/>
  </hstab>
 
 <!-- Rudder -->
  <vstab x="-10.0" y="0" z="1.38" taper=".176" effectiveness="1.0"
        length="4.5" chord="4.0" sweep="50">
   <stall aoa="28.0" width="3" peak="1.5"/>
-  <flap0 start="0" end="1" lift="1.15" drag="1.3"/>
+  <flap0 start="0" end="1" lift="1.5" drag="1.3"/>
 
   <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
 
   <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
 
-  <control-speed control="FLAP0" transition-time="1.5"/>
+  <control-speed control="FLAP0" transition-time="0.5"/>
  </vstab>
 
 <!-- Wing tips -->
