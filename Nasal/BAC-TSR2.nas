@@ -242,12 +242,9 @@ atl_heading = func {
   }
 }
 #--------------------------------------------------------------------
-toggle_traj_mkr = func {
-  if(getprop("ai/submodels/trajectory-markers") < 1) {
-    setprop("ai/submodels/trajectory-markers", 1);
-  } else {
-    setprop("ai/submodels/trajectory-markers", 0);
-  }
+var toggle_traj_mkr = func {
+    var p = "/ai/submodels/trajectory-markers";
+    setprop(p, !getprop(p));
 }
 #--------------------------------------------------------------------
 initialise_drop_view_pos = func {
