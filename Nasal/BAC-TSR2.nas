@@ -251,18 +251,18 @@ initialise_drop_view_pos = func {
   eyelatdeg = getprop("/position/latitude-deg");
   eyelondeg = getprop("/position/longitude-deg");
   eyealtft = getprop("/position/altitude-ft") + 20;
-  setprop("/sim/view[7]/latitude-deg", eyelatdeg);
-  setprop("/sim/view[7]/longitude-deg", eyelondeg);
-  setprop("/sim/view[7]/altitude-ft", eyealtft);
+  setprop("/sim/view[101]/latitude-deg", eyelatdeg);
+  setprop("/sim/view[101]/longitude-deg", eyelondeg);
+  setprop("/sim/view[101]/altitude-ft", eyealtft);
 }
 #--------------------------------------------------------------------
 update_drop_view_pos = func {
   eyelatdeg = getprop("/position/latitude-deg");
   eyelondeg = getprop("/position/longitude-deg");
   eyealtft = getprop("/position/altitude-ft") + 20;
-  interpolate("/sim/view[7]/latitude-deg", eyelatdeg, 5);
-  interpolate("/sim/view[7]/longitude-deg", eyelondeg, 5);
-  interpolate("/sim/view[7]/altitude-ft", eyealtft, 5);
+  interpolate("/sim/view[101]/latitude-deg", eyelatdeg, 5);
+  interpolate("/sim/view[101]/longitude-deg", eyelondeg, 5);
+  interpolate("/sim/view[101]/altitude-ft", eyealtft, 5);
 }
 #--------------------------------------------------------------------
 initialise_ground_observer_view_pos = func {
@@ -271,9 +271,9 @@ initialise_ground_observer_view_pos = func {
   goacaltft = getprop("/position/altitude-ft");
   goacaglft = getprop("/position/altitude-agl-ft");
   goeyealtft = (goacaltft - goacaglft) + 5.7;
-  setprop("/sim/view[8]/latitude-deg", golatdeg);
-  setprop("/sim/view[8]/longitude-deg", golondeg);
-  setprop("/sim/view[8]/altitude-ft", goeyealtft);
+  setprop("/sim/view[102]/latitude-deg", golatdeg);
+  setprop("/sim/view[102]/longitude-deg", golondeg);
+  setprop("/sim/view[102]/altitude-ft", goeyealtft);
 }
 #--------------------------------------------------------------------
 update_ground_observer_view_pos = func {
@@ -282,9 +282,9 @@ update_ground_observer_view_pos = func {
   goacaltft = getprop("/position/altitude-ft");
   goacaglft = getprop("/position/altitude-agl-ft");
   goeyealtft = (goacaltft - goacaglft) + 5.7;
-  interpolate("/sim/view[8]/latitude-deg", golatdeg, 5);
-  interpolate("/sim/view[8]/longitude-deg", golondeg, 5);
-  interpolate("/sim/view[8]/altitude-ft", goeyealtft, 5);
+  interpolate("/sim/view[102]/latitude-deg", golatdeg, 5);
+  interpolate("/sim/view[102]/longitude-deg", golondeg, 5);
+  interpolate("/sim/view[102]/altitude-ft", goeyealtft, 5);
 }
 #--------------------------------------------------------------------
 start_up = func {
