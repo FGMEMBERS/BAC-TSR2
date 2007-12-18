@@ -22,17 +22,17 @@ click.  Actions always modify the values of properties, either by
 adjusting them, toggling them, or swaping them with other
 properties' values.
 
-Hacked to create a three step flap quadrant - the flaps are
-extended/retracted in three steps.
+Hacked to create a single step flap quadrant - the flaps are
+extended/retracted in a single step.
 
-2003/01 Lee Elliott
+2003/08 Lee Elliott
 -->
 
 <PropertyList>
 
  <name>flap quadrant</name>
  <w-base>22</w-base>
- <h-base>80</h-base>
+ <h-base>70</h-base>
 
  <params>
   <flaps-select>/controls/flight/flaps</flaps-select>
@@ -50,7 +50,7 @@ extended/retracted in three steps.
     <y2>1.0</y2>
    </texture>
    <w>22</w>
-   <h>80</h>
+   <h>70</h>
   </layer>
 
 <!-- flap -->
@@ -90,10 +90,10 @@ extended/retracted in three steps.
   <action>
    <name>Flap Retract</name>
    <button>0</button>
-   <x>-9</x>
+   <x>-20</x>
    <y>-35</y>
-   <w>18</w>
-   <h>18</h>
+   <w>40</w>
+   <h>20</h>
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/flaps-select"/>
@@ -107,10 +107,10 @@ extended/retracted in three steps.
   <action>
    <name>Flap Extend</name>
    <button>0</button>
-   <x>-9</x>
+   <x>-20</x>
    <y>10</y>
-   <w>18</w>
-   <h>18</h>
+   <w>40</w>
+   <h>20</h>
    <binding>
     <command>property-adjust</command>
     <property alias="../../../../params/flaps-select"/>

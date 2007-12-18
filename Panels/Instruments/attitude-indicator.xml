@@ -28,14 +28,9 @@ adjusting them, toggling them, or swaping them with other
 properties' values.
 -->
 
-<!--
-	This is a hack of the AI instrument that uses orientation/roll &
-	orientation/pitch for it's inputs as the generic instrumentation
-	relies upon engine rpm to work.
--->	 
 <PropertyList>
 
- <name>Amended C172RG-mini Artifical horizon</name>
+ <name>C172RG-mini Artifical horizon</name>
 
  <w-base>128</w-base>
  <h-base>128</h-base>
@@ -60,6 +55,7 @@ properties' values.
     </transformation>
    </transformations>
   </layer>
+
   <layer>
    <name>pitch</name>
    <texture>
@@ -88,7 +84,8 @@ properties' values.
      <offset>0</offset>
     </transformation>
    </transformations>
-  </layer> 
+  </layer>
+
   <layer>
    <name>roll</name>
    <texture>
@@ -108,6 +105,7 @@ properties' values.
     </transformation>
    </transformations>
   </layer>
+
   <layer>
    <name>plane</name>
    <texture>
@@ -127,6 +125,7 @@ properties' values.
     </transformation>
    </transformations>
   </layer>
+
   <layer>
    <name>foreground</name>
    <texture>
@@ -136,7 +135,8 @@ properties' values.
     <x2>0.5</x2>
     <y2>1.0</y2>
    </texture>
-  </layer> 
+  </layer>
+
  </layers>
 
  <actions>
@@ -156,7 +156,7 @@ properties' values.
    <wrap>false</wrap>
   </binding>
   </action>
-  
+
   <action>
    <name>coarse lower</name>
    <button>1</button>

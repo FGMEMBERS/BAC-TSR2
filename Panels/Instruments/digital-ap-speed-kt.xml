@@ -21,7 +21,7 @@
   <layer>
    <name>background</name>
    <texture>
-    <path>Aircraft/BAC-TSR2/Panels/Instruments/Textures/trans-yellow-bg.rgb</path>
+    <path>Aircraft/BAC-TSR2/Panels/Instruments/Textures/trans-dgrey-bg.rgb</path>
    </texture>
     <w>124</w>
     <h>40</h>
@@ -581,7 +581,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>0.1</step>
     <min>0</min>
-    <max>2.0</max>
+    <max>1.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -598,7 +598,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>-0.1</step>
     <min>0</min>
-    <max>2.0</max>
+    <max>1.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -615,7 +615,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>0.01</step>
     <min>0</min>
-    <max>2.0</max>
+    <max>1.0</max>
     <wrap>0</wrap>
    </binding>
   </action>
@@ -632,7 +632,7 @@
     <property alias="../../../../params/mach-ctrl"/>
     <step>-0.01</step>
     <min>0</min>
-    <max>2.0</max>
+    <max>1.0</max>
     <wrap>0</wrap>
    </binding>
   </action>

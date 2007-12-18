@@ -3,7 +3,7 @@
 ************************************************************************
 BAC TSR2 simulation config.
 
-2005-08-07 Lee Elliott
+2007-12-17 Lee Elliott
 ************************************************************************
 -->
 
@@ -15,7 +15,7 @@ BAC TSR2 simulation config.
     </startup>
 
     <flight-model>yasim</flight-model>
-    <status>beta</status>
+    <status>alpha</status>
     <author>Lee Elliott</author>
     <aero>BAC-TSR2-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
@@ -38,7 +38,7 @@ BAC TSR2 simulation config.
     </view>
 
     <view n="100">
-      <name>Cockpit View</name>
+      <name>Rear Cockpit View</name>
       <type>lookfrom</type>
       <internal archive="y">true</internal>
       <config>
@@ -87,31 +87,7 @@ BAC TSR2 simulation config.
         <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
       </config>
     </view>
-<!--
-    <view n="102">
-      <name>Ground Observer View</name>
-      <type>lookat</type>
-      <config>
-        <eye-lat-deg-path>/sim/view[102]/latitude-deg</eye-lat-deg-path>
-        <eye-lon-deg-path>/sim/view[102]/longitude-deg</eye-lon-deg-path>
-        <eye-alt-ft-path>/sim/view[102]/altitude-ft</eye-alt-ft-path>
-        <eye-roll-deg-path>/sim/view[102]/roll-deg</eye-roll-deg-path>
-        <eye-pitch-deg-path>/sim/view[102]/pitch-deg</eye-pitch-deg-path>
-        <eye-heading-deg-path>/sim/view[102]/heading-deg</eye-heading-deg-path>
 
-        <at-model type="bool">true</at-model>
-        <at-model-idx type="int">0</at-model-idx>
-
-        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
-        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
-
-        <x-offset-m type="double">0</x-offset-m>
-        <y-offset-m type="double">0</y-offset-m>
-        <z-offset-m type="double">0</z-offset-m>
-        <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
-      </config>
-    </view>
--->
     <current-view>
       <field-of-view>55.0</field-of-view>
     </current-view>
@@ -141,9 +117,6 @@ BAC TSR2 simulation config.
       <autopilot>
         <path>Aircraft/BAC-TSR2/Systems/BAC-TSR2-autopilot.xml</path>
       </autopilot>
-      <electrical>
-        <path>Aircraft/BAC-TSR2/Systems/BAC-TSR2-electrical.xml</path>
-      </electrical>
     </systems>
 
 <!--sub models -->
@@ -172,6 +145,67 @@ BAC TSR2 simulation config.
       <setting>1.00</setting>
     </flaps>
 
+    <gui>
+      <dialogs>
+        <TFA-popup>
+          <config>
+            <dialog include="Dialogs/TFA-popup.xml"/>
+          </config>
+        </TFA-popup>
+      </dialogs>
+    </gui>
+
+<!-- AoA Indexer target 12.0 deg -->
+    <aoa-indexer>
+      <too-slow-deg>13.5</too-slow-deg>  <!-- target +1.5 deg -->
+      <slow-deg>12.5</slow-deg>          <!-- target +0.5 deg -->         
+      <fast-deg>11.5</fast-deg>          <!-- target -0.5 deg -->         
+      <too-fast-deg>10.5</too-fast-deg>  <!-- target -1.5 deg -->         
+    </aoa-indexer>
+
+    <help>
+      <title>BBAC-TSR2</title>
+      <key>
+        <name>j/k</name>
+        <desc>decrease/increase spoilers</desc>
+      </key>
+      <key>
+        <name>K</name>
+        <desc>toggle trajectory markers</desc>
+      </key>
+      <key>
+        <name>U</name>
+        <desc>update drop view position</desc>
+      </key>
+      <line>Approach AoA 12.0 deg</line>
+      <line></line>
+      <line>AP Modes</line>
+      <line>    AH - Altitude hold</line>
+      <line>    TF - Terrain follow/AGL hold</line>
+      <line>    TO - Auto take-off</line>
+      <line>    IL - ILS/Auto landing</line>
+      <line>    MC - Mach Climb</line>
+      <line></line>
+      <line>Click on AP Mode to turn off all A/P locks.</line>
+      <line></line>
+      <line>The 2D VFR panel is just a place-holder for the radio instruments</line>
+      <line> - use the 2D development mini-panel to control the aircraft (Shift-s)</line>
+      <line></line>
+      <line>Set the Altitude hold and TF/AGL settings via the autopilot menu.</line>
+      <line>or the popup dialog.  If an AP Mode is grayed out it is not available.</line>
+      <line></line>
+      <line>To use Mach-Climb mode click on the light blue M in the speed</line>
+      <line>instrument to select mach-hold mode, set the required mach</line>
+      <line>you want to maintain, select MC and then either turn off</line>
+      <line>speed locks (Ctrl-s) and set the throttles manually or select</line>
+      <line>KIAS hold (yellow K) and set a high speed - this will force</line>
+      <line>the throttles to 100%</line>
+      <line></line>
+      <line>Some diagnostic/development instruments will be displayed</line>
+      <line>depending on the AP modes engaged - they are not precisely</line>
+      <line>calibrated.</line>
+    </help>
+
   </sim>
 
 <!-- Keboard changes -->
@@ -186,17 +220,7 @@ BAC TSR2 simulation config.
           <script>TSR2.toggle_traj_mkr()</script>
         </binding>
       </key>
-<!-- Update Ground Observer View position -->
-<!--
-       <key n="81">
-        <name>Q</name>
-        <desc>Update Ground Observer View position</desc>
-        <binding n="0">
-          <command>nasal</command>
-          <script>TSR2.update_ground_observer_view_pos()</script>
-        </binding>
-      </key>
--->
+
 <!-- Update Drop View position -->
        <key n="85">
         <name>U</name>
@@ -206,7 +230,7 @@ BAC TSR2 simulation config.
           <script>TSR2.update_drop_view_pos()</script>
         </binding>
       </key>
-      
+
     </keyboard>
   </input>
 
@@ -219,28 +243,30 @@ BAC TSR2 simulation config.
 <!-- Autopilot -->
   <autopilot>
     <settings>
-      <target-agl-ft type="float">800</target-agl-ft>
+      <target-agl-ft type="float">200</target-agl-ft>
       <target-altitude-ft type="float">3000</target-altitude-ft>
-      <target-pitch-deg type="float">10</target-pitch-deg>
+      <target-pitch-deg type="float">0</target-pitch-deg>
+      <target-aoa-deg type="float">0</target-aoa-deg>
+      <target-roll-deg type="float">0</target-roll-deg>
       <target-climb-rate-fps type="float">0</target-climb-rate-fps>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-speed-kt type="float">350.0</target-speed-kt>
       <target-mach type="float">0.86</target-mach>
-      <approach-AoA-deg type="float">9.0</approach-AoA-deg>
-      <auto-flap-target-deg type="float">6.0</auto-flap-target-deg>
+      <approach-aoa-deg type="float">12.0</approach-aoa-deg>
+      <rotate-speed-kt type="float">110.0</rotate-speed-kt>
+      <rotate-deg type="float">13.0</rotate-deg>
     </settings>
 
     <locks>
-      <auto-take-off type="string">Enabled</auto-take-off>
-      <auto-landing type="string">Enabled</auto-landing>
-      <rudder-control type="string">Initialised</rudder-control>
-      <approach-AoA-lock type="string">Initialised</approach-AoA-lock>
-      <auto-flap-control type="string">Manual</auto-flap-control>
+      <pitch type="string">initialised</pitch>
+      <roll type="string">initialised</roll>
+      <altitude type="string">initialised</altitude>
+      <heading type="string">initialised</heading>
+      <auto-takeoff type="string">enabled</auto-takeoff>
+      <auto-landing type="string">enabled</auto-landing>
+      <rudder type="string">initialised</rudder>
+      <aoa type="string">initialised</aoa>
     </locks>
-    
-    <internal>
-      <target-climb-rate-fps type="double">0.0</target-climb-rate-fps>
-    </internal>
     
   </autopilot>
 
@@ -281,11 +307,36 @@ BAC TSR2 simulation config.
       <range type="int" archive="y">40</range>
       <minimized type="bool" archive="y">true</minimized>
     </radar>
+    <terrain-radar>
+      <hi-elev>
+        <alt-ft type="double">-9999.9</alt-ft>
+        <lat-deg type="double">-9999.9</lat-deg>
+        <lon-deg type="double">-9999.9</lon-deg>
+        <dist-m type="double">-9999.9</dist-m>
+        <collision-status type="string">initialised</collision-status>
+      </hi-elev>
+      <settings>
+        <mode type="string">extend</mode>
+        <state type="string">off</state>
+        <range-m type="double">2500</range-m>
+        <step-m type="double">250</step-m>
+        <max-climb-rate-fps type="double">120</max-climb-rate-fps>
+        <hi-elev-markers type="string">initialised</hi-elev-markers>
+      </settings>
+    </terrain-radar>
   </instrumentation>
 
   <nasal>
     <TSR2>
-      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-startup.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-dropview.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-trajectory-markers.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-auto-takeoff.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-auto-landing.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-altitude-hold-monitor.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-heading-hold-monitor.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-yaw-monitor.nas</file>
+      <file>Aircraft/BAC-TSR2/Nasal/BAC-TSR2-tfa.nas</file>
       <script>start_up();</script>
     </TSR2>
   </nasal>
