@@ -1,3 +1,5 @@
+# Initialise some variables outside the functions;
+  var htgt = nil;
 #--------------------------------------------------------------------
 var collision_monitor = func {
   var alt_mode =       props.globals.getNode("/autopilot/locks/altitude", 1);
@@ -173,6 +175,7 @@ var tfa_radar_continuous_mode_full_scan = func {
           hi_elev_lon.setDoubleValue(geo_coord.lon());
           hi_elev_dist.setDoubleValue(dist);
           tgt_tfa_ft.setDoubleValue(geo_elev_ft + tgt_agl_ft.getValue());
+          hi_elev_markers(geo_coord.lat(), geo_coord.lon());
         }
       }
     }
@@ -219,6 +222,7 @@ var tfa_radar_extend_mode_full_scan = func {
         hi_elev_lon.setDoubleValue(geo_coord.lon());
         hi_elev_dist.setDoubleValue(dist);
         tgt_tfa_ft.setDoubleValue(geo_elev_ft + tgt_agl_ft.getValue());
+        hi_elev_markers(geo_coord.lat(), geo_coord.lon());
       }
     }
     if(dist >= tfa_range.getValue()) {
@@ -254,6 +258,21 @@ var tfa_radar_extend_mode_extend_scan = func {
       hi_elev_lon.setDoubleValue(geo_coord.lon());
       hi_elev_dist.setDoubleValue(tfa_range.getValue());
       tgt_tfa_ft.setDoubleValue(geo_elev_ft + tgt_agl_ft.getValue());
+      hi_elev_markers(geo_coord.lat(), geo_coord.lon());
+    }
+  }
+}
+#--------------------------------------------------------------------
+var hi_elev_markers = func(lat, lon) {
+  marker_status =    props.globals.getNode("/instrumentation/terrain-radar/settings/hi-elev-markers", 1);
+
+  if(htgt != nil) {
+    htgt.remove();
+  }
+
+  if(marker_status.getValue()) {
+    if(lat > -180) {
+      htgt = geo.put_model("Aircraft/BAC-TSR2/Models/Elevation-marker.ac", lat, lon);
     }
   }
 }

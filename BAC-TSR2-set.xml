@@ -321,7 +321,7 @@ BAC TSR2 simulation config.
         <range-m type="double">2500</range-m>
         <step-m type="double">250</step-m>
         <max-climb-rate-fps type="double">120</max-climb-rate-fps>
-        <hi-elev-markers type="string">initialised</hi-elev-markers>
+        <hi-elev-markers type="bool">false</hi-elev-markers>
       </settings>
     </terrain-radar>
   </instrumentation>

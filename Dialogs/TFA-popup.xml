@@ -6,7 +6,7 @@
   <layout>vbox</layout>
 
   <text>
-    <label>BAC-TSR2 Terrain Following-Avoidance popup</label>
+    <label>BAC=-TSR2 Terrain Following-Avoidance popup</label>
   </text>
 
   <hrule><dummy/></hrule>
@@ -29,6 +29,10 @@
         <object-name>AGL-clearance</object-name>
       </binding>
       <binding>
+        <command>dialog-apply</command>
+        <object-name>Hi-elevation markers</object-name>
+      </binding>
+      <binding>
         <command>dialog-close</command>
       </binding>
     </button>
@@ -46,6 +50,10 @@
         <object-name>AGL-clearance</object-name>
       </binding>
       <binding>
+        <command>dialog-apply</command>
+        <object-name>Hi-elevation markers</object-name>
+      </binding>
+      <binding>
         <command>dialog-close</command>
       </binding>
     </button>
@@ -55,6 +63,13 @@
       <label>AGL Clearance (ft)</label>
       <property>/autopilot/settings/target-agl-ft</property>
     </input>
+
+    <checkbox>
+      <name>Hi-elevation markers</name>
+      <halign>center</halign>
+      <label>Enable Hi-elevation markers</label>
+      <property>/instrumentation/terrain-radar/settings/hi-elev-markers</property>
+    </checkbox>
 
     <empty><stretch>true</stretch></empty>
   </group>
