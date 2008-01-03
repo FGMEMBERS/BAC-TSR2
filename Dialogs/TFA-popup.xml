@@ -6,7 +6,7 @@
   <layout>vbox</layout>
 
   <text>
-    <label>BAC=-TSR2 Terrain Following-Avoidance popup</label>
+    <label>BAC-TSR2 Terrain Following-Avoidance popup</label>
   </text>
 
   <hrule><dummy/></hrule>
