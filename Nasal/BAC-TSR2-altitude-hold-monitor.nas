@@ -1,9 +1,9 @@
 #--------------------------------------------------------------------
-var altitude_hold_monitor = func {
+var altitude_hold_monitor = func(n) {
   # This listener script monitors the altitude-hold mode and
   # sets/clears the appropriate A/P locks for pitch and vfps.
 
-  var alt_mode =    cmdarg().getValue();
+  var alt_mode =    n.getValue();
   var aoa_lock =    props.globals.getNode("/autopilot/locks/aoa", 1);
   var hdg_lock =    props.globals.getNode("/autopilot/locks/heading", 1);
   var pitch_lock =  props.globals.getNode("/autopilot/locks/pitch", 1);
