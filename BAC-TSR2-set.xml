@@ -103,12 +103,7 @@ BAC TSR2 simulation config.
     <panel_2>
       <path>Aircraft/BAC-TSR2/Panels/BAC-TSR2-mini-panel.xml</path>
     </panel_2>
-
-    <hud>
-      <path>Aircraft/BAC-TSR2/Huds/BAC-TSR2-hud1.xml</path>
-      <visibility>true</visibility>
-    </hud>
-
+    
     <model>
       <path>Aircraft/BAC-TSR2/Models/BAC-TSR2-model.xml</path>
     </model>
