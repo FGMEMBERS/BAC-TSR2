@@ -22,6 +22,17 @@ BAC TSR2 simulation config.
 
     <description>BAC TSR2 Prototype (YASim FDM)</description>
 
+    <tags>
+       <tag>bomber</tag>
+       <tag>1960s</tag>
+       <tag>coldwar</tag>
+       <tag>prototype</tag>
+       <tag>supersonic</tag>
+       <tag>jet</tag>
+       <tag>afterburner</tag>
+       <tag>twin-engine</tag>
+    </tags>
+
     <virtual-cockpit archive="y">true</virtual-cockpit>
 
     <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
